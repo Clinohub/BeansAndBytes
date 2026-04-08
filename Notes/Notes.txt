@@ -14,7 +14,7 @@ No integer in if conditions in Java
 
 case in SwitchCase can take in multiple constants, as it iterates through each, i.e:
 	char ch;
-	Switch (ch) {
+	switch (ch) {
 		case 'a','b','c','d','e':
 		case 'A','B','C','D','E': return false;
 		default: return true;
