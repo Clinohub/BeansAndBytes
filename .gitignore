@@ -1,0 +1,7 @@
+# Compiled Java files
+*.class
+
+# Eclipse Build folders
+bin/
+out/
+target/
