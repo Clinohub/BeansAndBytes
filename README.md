@@ -45,13 +45,13 @@ The repo is a mix of:
 
 BeansAndBytes/
 │
-├── basics/
-├── control-flow/
-├── oop/
-├── collections/
-├── file-handling/
-├── mini-projects/
-└── notes/
+├── Basics/
+├── ControlFlow/
+├── OOP/
+├── Collections/
+├── FileHandling/
+├── MiniProjects/
+└── Notes/
 
 ```
 
