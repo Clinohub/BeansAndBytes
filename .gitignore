@@ -5,3 +5,6 @@
 bin/
 out/
 target/
+
+# Ignore Notes/*.txt
+Notes/*.txt
