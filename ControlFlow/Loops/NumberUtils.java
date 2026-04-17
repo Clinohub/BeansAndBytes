@@ -1,46 +1,153 @@
 public class NumberUtils {
 
-	public int getLastDigit(int number) {
-
-		/**
-         * This method takes an integer and returns its last digit.
-         * If the number is negative, it returns -1.
-         * If the number is zero, it returns 0.
-         * @param number: an integer
-         * @return last digit of number, or -1 if number is negative, or 0 if number is zero.
-         */
-
-		if (number < 0)
-			return -1;
-
-		return number % 10;
+	private int number;
+	
+	/**
+	 * Constructs a new NumberUtils with a number.
+	 * 
+	 * <p>This constructor initializes the internal state needed for
+	 * subsequent calculations.</p>
+	 * 
+	 * @param number integer number
+	 */
+	public NumberUtils (int number) {
+		this.number = number;
 	}
 
+
+	/**
+	 * Returns the number used for internal calculations.
+	 * 
+	 * @return the integer value of the number
+	 */
+	public int getNumber() {
+		return this.number;
+	}
+
+
+	/**
+     * Calculates the last digit of a number.
+	 * 
+	 * <p>This method retrieves the last digit of a number by calling
+	 * {@link #getNumber()}.</p>
+	 * 
+     * If the number is negative, it returns -1.
+     * If the number is zero, it returns 0.
+     * 
+     * @return last digit of number, or -1 if number is negative, or 0 if number is zero.
+     */
+	public int getLastDigit() {
+		if (getNumber() < 0)
+			return -1;
+		return getNumber() % 10;
+	}
+
+	/**
+	 * Calculates the number of digits in a number.
+	 * 
+     * <p>This method determines the number of digits in a given integer by calling 
+	 * {@link #getNumber()}.</p>
+	 * 
+     * If the number is negative, it returns -1.
+     * If the number is zero, it returns 1 as zero is considered to have one digit.
+	 * 
+     * @return number of digits in number, or -1 if number is negative, or 1 if number is zero.
+     */
+	public int getNumberOfDigits() {
+		if (getNumber() < 0)
+		    return -1;
+
+	    int numberOfDigits = 0;
+		int digits = getNumber();
+
+	    do {
+		    digits /= 10;
+		    numberOfDigits++;
+	    } while (digits != 0);
+
+	    return numberOfDigits;
+    }
+
 	public static void main(String[] args) {
-		NumberUtils numberUtils = new NumberUtils();
+		NumberUtils numberUtils;
 
-		//Test for getLastDigit(arg) method
-		//Normal Cases
-		int actual = numberUtils.getLastDigit(1234);
-		System.out.println(actual);
+		// Normal Cases
+		numberUtils = new NumberUtils(1234);
+		System.out.println("Number: " + numberUtils.getNumber());
 
-		actual = numberUtils.getLastDigit(7);
-		System.out.println(actual);
+		int actual = numberUtils.getLastDigit();
+		System.out.println("Last Digit: " + actual);
 
-		actual = numberUtils.getLastDigit(84);
-		System.out.println(actual);
+		actual = numberUtils.getNumberOfDigits();
+	    System.out.println("Number of Digits: " + actual);
+		System.out.println();
 
-		actual = numberUtils.getLastDigit(6389);
-		System.out.println(actual);
 
-		actual = numberUtils.getLastDigit(84127);
-		System.out.println(actual);
+		numberUtils = new NumberUtils(7);
+		System.out.println("Number: " + numberUtils.getNumber());
+
+		actual = numberUtils.getLastDigit();
+		System.out.println("Last Digit: " + actual);
+
+		actual = numberUtils.getNumberOfDigits();
+	    System.out.println("Number of Digits: " + actual);
+		System.out.println();
+
+
+		numberUtils = new NumberUtils(-1);
+		System.out.println("Number: " + numberUtils.getNumber());
+
+		actual = numberUtils.getLastDigit();
+		System.out.println("Last Digit: " + actual);
+
+		actual = numberUtils.getNumberOfDigits();
+	    System.out.println("Number of Digits: " + actual);
+		System.out.println();
+
+
+		numberUtils = new NumberUtils(100000);
+		System.out.println("Number: " + numberUtils.getNumber());
+
+		actual = numberUtils.getLastDigit();
+		System.out.println("Last Digit: " + actual);
+
+		actual = numberUtils.getNumberOfDigits();
+	    System.out.println("Number of Digits: " + actual);
+		System.out.println();
+
+
 
 		//Edge Cases
-		actual = numberUtils.getLastDigit(-1234);
-		System.out.println(actual);
+		numberUtils = new NumberUtils(-1234);
+		System.out.println("Number: " + numberUtils.getNumber());
 
-		actual = numberUtils.getLastDigit(0);
-		System.out.println(actual);
+		actual = numberUtils.getLastDigit();
+		System.out.println("Last Digit: " + actual);
+
+		actual = numberUtils.getNumberOfDigits();
+	    System.out.println("Number of Digits: " + actual);
+		System.out.println();
+
+
+		numberUtils = new NumberUtils(0);
+		System.out.println("Number: " + numberUtils.getNumber());
+
+		actual = numberUtils.getLastDigit();
+		System.out.println("Last Digit: " + actual);
+
+		actual = numberUtils.getNumberOfDigits();
+	    System.out.println("Number of Digits: " + actual);
+		System.out.println();
+
+
+		numberUtils = new NumberUtils(987654321);
+		System.out.println("Number: " + numberUtils.getNumber());
+
+		actual = numberUtils.getLastDigit();
+		System.out.println("Last Digit: " + actual);
+
+		actual = numberUtils.getNumberOfDigits();
+	    System.out.println("Number of Digits: " + actual);
+		System.out.println();
 	}
 } 
