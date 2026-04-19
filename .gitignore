@@ -1,3 +1,5 @@
+# This is local .gitignore for BeansAndBytes repo
+
 # Compiled Java files
 *.class
 
@@ -6,5 +8,6 @@ bin/
 out/
 target/
 
-# Ignore Notes/*.txt
-Notes/*.txt
+# Repository Notes
+Notes.md
+AMustRead.txt
