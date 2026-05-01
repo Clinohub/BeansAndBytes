@@ -1,10 +1,21 @@
 import java.util.Arrays;
 
 public class DaysOfWeekArray {
+    String[] daysOfWeek;
+
+    public DaysOfWeekArray(String... daysOfWeekArray) {
+        this.daysOfWeek = daysOfWeekArray;
+    }
+
+
+    String[] getDays() {
+        return this.daysOfWeek;
+    }
+
  
-    String daysOfWeek (String... daysOfWeek) {
-        String day = daysOfWeek[0];
-        for (String dayOfWeek: daysOfWeek) {
+    String daysOfWeek() {
+        String day = getDays()[0];
+        for (String dayOfWeek: getDays()) {
             if (dayOfWeek.length() > day.length()) {
                 day = dayOfWeek;
             }
@@ -14,26 +25,26 @@ public class DaysOfWeekArray {
     }
 
 
-    String[] daysOfWeekReverse (String... daysOfWeek) {
-        int j = daysOfWeek.length;
+    String[] daysOfWeekReverse() {
+        int j = getDays().length;
         String dayReverse[] = new String[j];
 
-        for (int i = 0; i < daysOfWeek.length; i++) {
-            dayReverse[i] = daysOfWeek[--j]; 
+        for (int i = 0; i < getDays().length; i++) {
+            dayReverse[i] = getDays()[--j]; 
         }
 
         return dayReverse;
     }
 
     public static void main(String[] args) {
-        DaysOfWeekArray daysOfWeekArray = new DaysOfWeekArray();
-
         String[] arrayOfDaysOfTheWeek = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-        String longestString = daysOfWeekArray.daysOfWeek(arrayOfDaysOfTheWeek);
+        DaysOfWeekArray daysOfWeekArray = new DaysOfWeekArray(arrayOfDaysOfTheWeek);
+
+        String longestString = daysOfWeekArray.daysOfWeek();
         System.out.println(longestString);
 
-        String daysOfWeekBackwards = Arrays.toString(daysOfWeekArray.daysOfWeekReverse(arrayOfDaysOfTheWeek));
+        String daysOfWeekBackwards = Arrays.toString(daysOfWeekArray.daysOfWeekReverse());
         System.out.println(daysOfWeekBackwards);
     }
 }
