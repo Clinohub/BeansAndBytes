@@ -15,7 +15,17 @@ public class Student {
     }
 
     public String toString() {
-        return name;
+        return name + "-" + listOfMarks;
+    }
+
+
+    public void addNewMark(int mark) {
+        listOfMarks.add(mark);
+    }
+
+
+    public void removeMarkAtIndex(int index) {
+        listOfMarks.remove(index);
     }
 
     public int getNumberOfMarks() {
@@ -78,8 +88,12 @@ public class Student {
         BigDecimal average = student.getAverageMarks();
         System.out.println("Average Marks: " + average);
 
-        //student.addNewMark(100);
+        student.addNewMark(100);
+        System.out.println("Student Name: " + student);
+        System.out.println();
 
-        //student.removeMarkAtIndex(5);
+        student.removeMarkAtIndex(1);
+        System.out.println("Student Name: " + student);
+        System.out.println();
     }
 }
