@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class StringMagic {
 
 
@@ -63,6 +65,28 @@ public class StringMagic {
     }
 
 
+    /**
+     * Method finds the longest word in a given sentence
+     *  
+     * @param sentence as a string input
+     * @return longest string in the sentence otherwise empty string if sentence is empty
+     */
+    public String findLongestWord(String sentence) {
+        if (sentence.isEmpty()) {
+            return "";
+        }
+
+        String longestWord = "";
+        String[] arrayWord = sentence.split(" ");
+        for (String word: arrayWord) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+
+
     public static void main(String[] args) {
         StringMagic stringMagic = new StringMagic();
         int uppercaseLetters = stringMagic.countUppercaseLetters("Hello WORLd");
@@ -113,5 +137,13 @@ public class StringMagic {
 
         rightmostDigit = stringMagic.getRightmostDigit("");
         System.out.println(rightmostDigit);
+
+        
+        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Write a sentence: ");
+        String input = scanner.nextLine();
+        System.out.println("Longest word in the sentence: " + stringMagic.findLongestWord(input));
+        scanner.close();
     }
 }
