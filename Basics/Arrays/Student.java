@@ -7,7 +7,7 @@ public class Student {
     private String name;
     private int[] listOfMarks;
 
-    public Student(String name, int[] listOfMarks) {
+    public Student(String name, int... listOfMarks) {
         this.name = name;
         this.listOfMarks = listOfMarks;
     }
@@ -57,9 +57,9 @@ public class Student {
     }
 
     public static void main(String[] args) {
-        int [] marks = {70,60,49,88,76,57,98,36};
+        //int [] marks = {70,60,49,88,76,57,98,36};
 
-        Student student = new Student("Victor", marks);
+        Student student = new Student("Victor", 70,60,49,88,76,57,98,36);
         System.out.println("Student Name: " + student.getName());
         System.out.println();
 
