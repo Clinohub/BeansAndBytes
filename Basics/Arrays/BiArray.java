@@ -6,7 +6,7 @@ public class BiArray {
      * @param array integer array
      * @return the sum of array elements
      */
-    public int calculateSum(int[] array) {
+    private int calculateSum(int[] array) {
         int sum = 0;
 
         for (int element: array) {
@@ -31,8 +31,8 @@ public class BiArray {
      * @return true if they are equal, and false otherwise.
      */
     public boolean areSumsEqual(int[] array1, int[] array2) {
-        int sum1 = calculateSum(array1);
-        int sum2 = calculateSum(array2);
+        int sum1 = this.calculateSum(array1);
+        int sum2 = this.calculateSum(array2);
 
         if (sum1 == sum2) {
             return true;
@@ -44,7 +44,7 @@ public class BiArray {
     public static void main(String[] args) {
         int[] myarray = {1, 2, 3, 4, 5, 6};
         int[] _array = {21};
-        
+
         BiArray biArray = new BiArray();
 
         boolean actual = biArray.areSumsEqual(myarray, _array);
