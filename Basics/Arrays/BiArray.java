@@ -44,13 +44,8 @@ public class BiArray {
     public static void main(String[] args) {
         int[] myarray = {1, 2, 3, 4, 5, 6};
         int[] _array = {21};
+        
         BiArray biArray = new BiArray();
-
-        int summyarray = biArray.calculateSum(myarray);
-        int sum_array = biArray.calculateSum(_array);
-        System.out.print(summyarray);
-        System.out.print('-');
-        System.out.println(sum_array);
 
         boolean actual = biArray.areSumsEqual(myarray, _array);
         System.out.println(actual);
