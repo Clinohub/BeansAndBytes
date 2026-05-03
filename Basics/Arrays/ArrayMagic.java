@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class ArrayMagic {
     
@@ -24,11 +24,45 @@ public class ArrayMagic {
     }
 
 
+        /**
+     * This checks for second largest element in an array.
+     * 
+     * @param array integer array
+     * 
+     * @return the second largest element in that array otherwise -1 or if array has less than 2 unique elements
+     */
+    public int findSecondLargestElement(int[] array) {
+        if (array.length < 2) {
+            return -1;
+        }
+
+        Arrays.sort(array);
+        int max = array[0];
+        int secondMax = max;
+
+        for (int element: array) {
+            if (element > max) {
+                secondMax = max;
+                max = element;
+            }
+        }
+
+        if (max == secondMax) {
+            return -1;
+        }
+
+        return secondMax;
+    }
+
+
     public static void main(String[] args) {
-        int[] arrayNumbers =  {-1,-2,-3,-4,-5};
+        int[] arrayNumbers =  {Integer.MAX_VALUE, Integer.MIN_VALUE};
 
         ArrayMagic arrayMagic = new ArrayMagic();
         boolean actual = arrayMagic.doesHaveElementGreaterThan(arrayNumbers, -3);
         System.out.println(actual);
+
+        int yeah = arrayMagic.findSecondLargestElement(arrayNumbers);
+        System.out.println(yeah);
     }
 }
