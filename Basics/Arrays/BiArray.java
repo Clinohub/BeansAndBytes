@@ -1,5 +1,18 @@
 public class BiArray {
 
+    private int[] array1;
+    private int[] array2;
+
+    /**
+     * Initializes a new BiArray with two integer arrays.
+     * 
+     * @param array1
+     * @param array2
+     */
+    public BiArray (int[] array1, int... array2) {
+        this.array1 = array1;
+        this.array2 = array2;
+    }
     /**
      *  This method calculates the sum of the elements in the provided array
      * 
@@ -30,7 +43,7 @@ public class BiArray {
      * @param array2 integer array
      * @return true if they are equal, and false otherwise.
      */
-    public boolean areSumsEqual(int[] array1, int[] array2) {
+    public boolean areSumsEqual() {
         int sum1 = this.calculateSum(array1);
         int sum2 = this.calculateSum(array2);
 
@@ -45,9 +58,9 @@ public class BiArray {
         int[] myarray = {1, 2, 3, 4, 5, 6};
         int[] _array = {21};
 
-        BiArray biArray = new BiArray();
+        BiArray biArray = new BiArray(myarray, _array);
 
-        boolean actual = biArray.areSumsEqual(myarray, _array);
+        boolean actual = biArray.areSumsEqual();
         System.out.println(actual);
     }
 }
