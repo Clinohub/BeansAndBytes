@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArrayMagic {
@@ -24,7 +25,7 @@ public class ArrayMagic {
     }
 
 
-        /**
+    /**
      * This checks for second largest element in an array.
      * 
      * @param array integer array
@@ -115,6 +116,38 @@ public class ArrayMagic {
     }
 
 
+    /**
+     * This method takes a number and return
+     * factors of the number as a list<integer>
+     * 
+     * if number is zero , it returns an empty list
+     * if number is negative, it returns an empty list
+     *  
+     * @param number
+     * @return
+     */
+    public ArrayList<Integer> determineAllFactors(int number) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        if (number <= 0) {
+            return list;
+        }
+
+        for (int i = 1; i <= number/2 + 1; i++) {
+            if (number % i == 0) {
+                if (!(list.contains(i))) {
+                    list.addLast(i);
+                    if (i != number/i) {
+                        list.addLast(number/i);
+                    }
+                }              
+            }
+            
+        }
+        return list;
+    }
+
+
     public static void main(String[] args) {
         int[] arrayNumbers =  {1000000, 2000000, 3000000};
 
@@ -130,5 +163,10 @@ public class ArrayMagic {
 
         int[] reverse = arrayMagic.reverseArray(arrayNumbers);
         System.out.println("Reversed Array: " + Arrays.toString(reverse));
+
+        int theNumber = 1000;
+        ArrayList<Integer> factors = arrayMagic.determineAllFactors(theNumber);
+        System.out.println("Factors of: " + theNumber);
+        System.out.println(factors);
     }
 }
