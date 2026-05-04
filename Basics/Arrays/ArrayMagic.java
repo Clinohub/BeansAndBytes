@@ -36,15 +36,24 @@ public class ArrayMagic {
             return -1;
         }
 
-        Arrays.sort(array);
         int max = array[0];
-        int secondMax = max;
+        int secondMax = array[1];
 
         for (int element: array) {
             if (element > max) {
                 secondMax = max;
                 max = element;
             }
+
+            if (element < secondMax && secondMax == max) {
+                secondMax = element;
+            }
+                
+
+            if (element > secondMax && element != max) {
+                secondMax = element;
+            }
+
         }
 
         if (max == secondMax) {
@@ -55,14 +64,44 @@ public class ArrayMagic {
     }
 
 
+    /**
+     * Method checks if an array is sorted and
+     * 
+     * returns true if sorted or is empty
+     * otherwise false
+     * 
+     * @param array
+     * @return boolean
+     */
+    public boolean isSorted(int[] array) {
+        if (array.length <= 1) {
+            return true;
+        }
+
+        int max = array[0];
+        for (int element: array) {
+            if (element >= max) {
+                max = element;
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public static void main(String[] args) {
-        int[] arrayNumbers =  {Integer.MAX_VALUE, Integer.MIN_VALUE};
+        int[] arrayNumbers =  {-1, -3, -2, 0, 1};
 
         ArrayMagic arrayMagic = new ArrayMagic();
-        boolean actual = arrayMagic.doesHaveElementGreaterThan(arrayNumbers, -3);
-        System.out.println(actual);
+        boolean actual = arrayMagic.doesHaveElementGreaterThan(arrayNumbers, 3);
+        System.out.println("Has greater than " + 3 + ": " + actual);
 
         int yeah = arrayMagic.findSecondLargestElement(arrayNumbers);
-        System.out.println(yeah);
+        System.out.println("Second Largest: " + yeah);
+
+        boolean arraySort = arrayMagic.isSorted(arrayNumbers);
+        System.out.println("Sorted: " + arraySort);
     }
 }
