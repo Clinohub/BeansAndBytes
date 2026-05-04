@@ -91,8 +91,32 @@ public class ArrayMagic {
     }
 
 
+    /**
+     * Reverses an array
+     * 
+     * The method takes an array of integer and return
+     * an integer array that holds element in reverse order
+     * 
+     * if array is empty return empty array
+     * 
+     * @param array integer array
+     * @return integer array
+     */
+    public int[] reverseArray(int[] array) {
+        int end = array.length -1;
+
+        int[] reversedArray = new int[array.length];
+        for (int start = 0; start <= end; start++,end--) {
+            reversedArray[start] = array[end];
+            reversedArray[end] = array[start];
+        }
+
+        return reversedArray;
+    }
+
+
     public static void main(String[] args) {
-        int[] arrayNumbers =  {-1, -3, -2, 0, 1};
+        int[] arrayNumbers =  {1000000, 2000000, 3000000};
 
         ArrayMagic arrayMagic = new ArrayMagic();
         boolean actual = arrayMagic.doesHaveElementGreaterThan(arrayNumbers, 3);
@@ -103,5 +127,8 @@ public class ArrayMagic {
 
         boolean arraySort = arrayMagic.isSorted(arrayNumbers);
         System.out.println("Sorted: " + arraySort);
+
+        int[] reverse = arrayMagic.reverseArray(arrayNumbers);
+        System.out.println("Reversed Array: " + Arrays.toString(reverse));
     }
 }
